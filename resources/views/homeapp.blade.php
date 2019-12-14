@@ -1,29 +1,14 @@
-
-
-
-
-
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 @extends('layouts.app')
 
 @section('content')
-<!-- <div class="container">
-    
-
-                <div class="card-body"> -->
+        <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
+                        <!-- <div class="alert alert-success" role="alert"> -->
                             {{ session('status') }}
                         </div>
-                    @endif
-                   
-
-                    
-                <!-- </div>
-            
-</div> -->
-@endsection
+                    @endif 
 
 
 
@@ -45,10 +30,8 @@
   <!-- /#wrapper -->
 
   
+  
 
 </body>
 
 </html>
-
-
-

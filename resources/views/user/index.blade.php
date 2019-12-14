@@ -10,12 +10,18 @@
 
 @ssection('content')
     <table>
-    <tr><th>Name</th><th>Mail</th><th>Age</th></tr>
+    <tr><th>Name</th><th>Article</th></tr>
     @foreach ($items as $item)
         <tr>
-            <td>{{$item->name}}</td>
-            <td>{{$item->mail}}</td>
-            <td>{{$item->age}}</td>
+            <td>{{ $item->getData() }}</td>
+            <td>@if ($item->article != null)
+            <table width="100%">
+            @foreach($item->articles as $obj)
+            <tr><td>{{$obj->getData()}}</td></tr>  
+            @endforeach
+            </table>
+                @endif
+            </td>
         </tr>
     @endforeach
     </table>
