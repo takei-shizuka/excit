@@ -50,8 +50,19 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'age' =>['required', 'integer', 'max:150'],
+            'name_kana' =>['required', 'string', 'max:255'],
+            'postal_code' =>['required', 'string', 'max:21'],
+            'address' =>['required', 'string', 'max:255'],
+            'address_kana'=>['required', 'string', 'max:255'],
+            'tel_number' =>['required', 'string', 'max:50'],
+            'gender' =>['required', 'string', 'max:10'],
+            'nickname'=>['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'birthday' =>['required', 'date', 'max:15'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+
+            
         ]);
     }
 
@@ -65,8 +76,18 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'age' => $data['age'],
+            'name_kana' => $data['name_kana'],
+            'postal_code' => $data['postal_code'],
+            'address' => $data['address'],
+            'address_kana'=> $data['address_kana'],
+            'tel_number' => $data['tel_number'],
+            'gender' => $data['gender'],
+            'nickname'=> $data['nickname'],
             'email' => $data['email'],
+            'birthday' =>$data['birthday'],
             'password' => Hash::make($data['password']),
+            
         ]);
     }
 }
