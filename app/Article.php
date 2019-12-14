@@ -21,13 +21,13 @@ class Article extends Model
         );
 
     //
-    public function user()
-    {
-        return $this->belongTo('App\Article');
-    }
+    // public function user()
+    // {
+    //     return $this->belongTo('App\Article');
+    // }
     
     public function getData()
     {
-        return $this->id.':'. $this->title.'('.$this->user->name.')';
+        return $this->id.':'. $this->title;
     }
     }
