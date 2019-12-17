@@ -53,16 +53,17 @@ class ArticleController extends Controller
         //レコードの削除
      public function destroy($id)
      {
-         //対象の記事表示？
-        
+         
 
         //削除処理
-         $article = Article::destroy($id);
+        //findOrFail:該当するレコードが見つからない場合例外を投げてくれる。
+         $article = Article::findOrFail($id);
          $article->delete();
         
          //articleテーブルのレコードを全件削除
         $article =Article::all();
-         return redirect('article/indexß')->with('message','削除しました。')->with('article',$article);
+        //redirect()の中はパス
+         return redirect('article/index')->with('message','削除しました。')->with('article',$article);
      }
 
      
