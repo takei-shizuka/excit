@@ -23,7 +23,7 @@
             <form action="{{ action('ArticleController@destroy',$item->id)}}" id="form_{{$item->id}}" method="post">
             {{ csrf_field() }}
             {{ method_field('delete')}}   
-            <a href="#" data-id="{{ $item->id}}" class="btn btn-danger btn-sm" onclick="deletePost(this);">削除</a>
+            <a href="#" data-id="{{ $item->id}}" class="btn btn-danger btn-sm" >削除</a>
              
              </form>
         </td>
@@ -32,16 +32,16 @@
 </table>
 
 
-<script>
-//JavaScriptで確認画面を表示
-function daletePost(e){
-    'use strict';
+<!-- <script> -->
+<!-- //JavaScriptで確認画面を表示
+// function daletePost(e){
+//     'use strict';
 
-    if(confirm('本当に削除していいですか？')){
-        document.getElementByID('form_'+ e.dataset.id).submit();
-    }
-}
-</script>
+//     if(confirm('本当に削除していいですか？')){
+//         document.getElementByID('form_'+ e.dataset.id).submit();
+//     }
+// }
+// </script> -->
 @endsection
 
 
