@@ -30,7 +30,7 @@ Route::post('/article/add','ArticleController@create')->name('article_create');
 
 //edit.update(編集)
 Route::get('/article/edit/{id}','ArticleController@edit')->name('article_edit');
-Route::patch('/article/edit','ArticleController@update')->name('article_update');
+Route::put('/article/edit','ArticleController@update')->name('article_update');
 
 //delete.remove(削除)
 Route::delete('/artcle/destroy/{id}','ArticleController@destroy')->name('article_destroy');

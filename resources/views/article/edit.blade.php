@@ -19,7 +19,7 @@
     @endif
     <table class="table table-striped">
 
-    <form action='{{ route('article_update')}}' method='post'>
+    <form action='{{ route('article_update')}}' method='put'>
     {{ csrf_field() }}
     <input type="hidden" name="id" value="{{ $form->id }}">
     <tr><th>title:</th><td><input type="text" name="title" value="{{ $form->title }}"></td></tr>
@@ -27,7 +27,7 @@
     <tr><th>user_id:</th><td><input type="number" name="user_id" value="{{ $form->user_id }}"></td></tr>
     <tr><th></th><td><input type="submit" value="send"></td></tr>
     </form>
-    
+
     <table>
 @endsection
 
