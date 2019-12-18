@@ -8,6 +8,9 @@
 
 @section('content')
     <table>
+    <!-- //loop -->
+    @foreach($data as $val)
+    
     <form action="/article/destroy/{id}" method='post'>
     {{ csrf_field() }}
     <input type="hidden" name="_method" value="DELETE">
