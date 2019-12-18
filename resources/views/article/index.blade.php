@@ -20,16 +20,17 @@
         <td>{{$item->content}}</td>
         <td><a href="{{ action('ArticleController@edit',$item->id)}}" class="btn btn-primary btn-sm">編集</a></td>
         <td>
-            <form action="{{ action('ArticleController@destroy',$item->id)}}" id="form_{{$item->id}}" method="post">
+            <form action="{{ action('ArticleController@destroy',$item->id)}}" id="form_{{$item->id}}" >
             {{ csrf_field() }}
             {{ method_field('delete')}}   
-            <a href="#" data-id="{{ $item->id}}" class="btn btn-danger btn-sm" onclick="deletePost(this);">削除</a>
+            <a href="/artcle/destroy/{id}" data-id="{{ $item->id}}" class="btn btn-danger btn-sm" >削除</a>
              
              </form>
         </td>
         </tr>
 @endforeach
 </table>
+
 
 
 <script>
@@ -42,6 +43,7 @@ function deletePost(e){
     }
 }
 </script>
+
 @endsection
 
 
