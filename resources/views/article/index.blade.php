@@ -32,16 +32,18 @@
 </table>
 
 
-<!-- <script> -->
-<!-- //JavaScriptで確認画面を表示
-// function daletePost(e){
-//     'use strict';
 
-//     if(confirm('本当に削除していいですか？')){
-//         document.getElementByID('form_'+ e.dataset.id).submit();
-//     }
-// }
-// </script> -->
+<script>
+//JavaScriptで確認画面を表示
+function deletePost(e){
+    'use strict';
+
+    if(confirm('本当に削除していいですか？')){
+        document.getElementById('form_'+ e.dataset.id).submit();
+    }
+}
+</script>
+
 @endsection
 
 
