@@ -27,7 +27,7 @@ class ArticleController extends Controller
             $form = $request->all();
             unset($form['_token']);
             $article->fill($form)->save();
-            return redirect('/home');
+            return redirect('article/index');
      }
 
 
@@ -45,7 +45,7 @@ class ArticleController extends Controller
          $form = $request->all();
          unset($form['_token']);
          $article->fill($form)->save();
-         return redirect('/home');
+         return redirect('article/index');
      }
 
      

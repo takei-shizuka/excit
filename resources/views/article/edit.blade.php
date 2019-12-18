@@ -19,8 +19,9 @@
     @endif
     <table class="table table-striped">
 
-    <form action='{{ route('article_update')}}' method='put'>
+    <form action='{{ route('article_update')}}' method='post' >
     {{ csrf_field() }}
+    <input type="hidden" name="_method" value='put'>
     <input type="hidden" name="id" value="{{ $form->id }}">
     <tr><th>title:</th><td><input type="text" name="title" value="{{ $form->title }}"></td></tr>
     <tr><th>content:</th><td><input type="text" name="content" value="{{ $form->content }}"></td></tr>
