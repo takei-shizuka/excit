@@ -1,10 +1,6 @@
-<!-- ユーザーホーム（add） -->
-
-
-
 <!-- @extends('layouts.app') -->
 
-<!-- @section('title','article.add') -->
+<!-- @section('title','article_add') -->
 
 <!-- @section('menubar')
     @parent
@@ -20,6 +16,8 @@
 <!-- //ユーザーホーム/pagecontent -->
 @include('./layouts.pagecontent')
 
+@section('article_add')
+
 @section('content')
     @if(count($errors) > 0)
     <div>
@@ -32,29 +30,23 @@
     @endif
 
     <table>
-    <form action='{{route('article_create')}}' method='post'>
-    {{ csrf_field() }}
-    <tr><th>title:</th><td><input type="text" name="title" value="{{ old('title') }}"></td></tr>
-    <tr><th>content:</th><td><input type="text" name="content" value="{{ old('content') }}"></td></tr>
-    <tr><th>user_id:</th><td><input type="number" name="user_id" value="{{ old('user_id')}}"></td></tr>
+    <form action='{{ route('article_create')}}' method='post'>
+    {{csrf_field()}}
+
+    <tr><th>user_id:</th><td><input type="integer" name="user_id" value="{{old('user_id')}}"></td></tr>
+    <tr><th>title:</th><td><input type="text" name="title" value="{{old('title')}}"></td></tr>
+    <tr><th>content:</th><td><input type="text" name="content" value="{{old('content')}}"></td></tr>
+    
     <tr><th></th><td><input type="submit" value="send"></td></tr>
     </form>
     </table>
 @endsection
 
-<!-- Bootstrap core JavaScript -->
-<!-- <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  Menu Toggle Script
-  <script>
-    $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
-  </script>  -->
 
-</body>
+
+
+
 @section('footer')
 copyright 2017 tuyano.
 @endsection

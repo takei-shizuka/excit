@@ -28,6 +28,8 @@ Route::get('/article/index','ArticleController@index')->name('article_index');
 Route::get('/article/add','ArticleController@add')->name('article_add');
 Route::post('/article/add','ArticleController@create')->name('article_create');
 
+
+
 //edit.update(編集)
 Route::get('/article/edit/{id}','ArticleController@edit')->name('article_edit');
 Route::put('/article/edit','ArticleController@update')->name('article_update');
