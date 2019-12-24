@@ -9,8 +9,8 @@ class ArticleController extends Controller
     //index（一覧表示）
     public function index(Request $request)
     {
-    $articles = Article::all();
-    return view('article.index',['articles' => $articles]);
+    $items = Article::all();
+    return view('article.index',['items' => $items]);
     }
 
     /**
