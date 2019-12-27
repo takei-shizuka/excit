@@ -6,30 +6,35 @@
 @section('menubar')
     @parent
     記事一覧ページ
-    @endsection
+@endsection
 
 @section('content')
 <table class="table table-striped">
 <tr><th>Data</th></tr>
 <!-- ループで回す -->
+echo $user;
 
-@foreach($items as $item)
+    @foreach($items as $item)
     <tr>
-        <td>{{$item->id}}</td>
+        <td>{{$item->user_id}}</td>
         <td>{{$item->title}}</td>
         <td>{{$item->content}}</td>
+        @auth
+        @if(($item->user_id) === (Auth::user()->id))
         <td><a href="{{ action('ArticleController@edit',$item->id)}}" class="btn btn-primary btn-sm">編集</a></td>
         <td>
             <form action="{{ action('ArticleController@destroy',$item->id)}}" id="form_{{$item->id}}" >
             {{ csrf_field() }}
             {{ method_field('delete')}}   
             <a href="/artcle/destroy/{id}" data-id="{{ $item->id}}" class="btn btn-danger btn-sm" >削除</a>
-             
              </form>
-        </td>
+            </td>
+        @endif
+        @endauth
         </tr>
-@endforeach
+    @endforeach
 </table>
+@endsection
 
 
 
@@ -44,7 +49,7 @@ function deletePost(e){
 }
 </script>
 
-@endsection
+
 
 
 @section('footer')

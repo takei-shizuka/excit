@@ -25,4 +25,12 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    //ログイン情報の取得
+    public function add(Request $request)
+    {
+    $user = Auth::User();
+    return view('article/add',['user'=>$user]);
+    }
+    
 }

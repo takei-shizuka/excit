@@ -30,16 +30,16 @@
         </ul>
     </div>
     @endif
-
-    <table>
     <form action='{{route('article_create')}}' method='post'>
     {{ csrf_field() }}
-    <tr><th>title:</th><td><input type="text" name="title" value="{{ old('title') }}"></td></tr>
-    <tr><th>content:</th><td><input type="text" name="content" value="{{ old('content') }}"></td></tr>
-    <tr><th>user_id:</th><td><input type="number" name="user_id" value="{{ old('user_id')}}"></td></tr>
+    <table>
+    <tr><th>title:</th><td><input type="text" name="title" ></td></tr>
+    <tr><th>content:</th><td><input type="text" name="content"></td></tr>
+   
     <tr><th></th><td><input type="submit" value="send"></td></tr>
-    </form>
+    $form->user_id = $request->user()->id;
     </table>
+    </form>
 @endsection
 
 <!-- Bootstrap core JavaScript -->

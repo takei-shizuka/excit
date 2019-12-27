@@ -2,16 +2,31 @@
 
 namespace App\Http\Controllers;
 use App\Article;
+use \Http\Auth;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    //middleware('auth')を呼び出し、アクセス制限をかける。
+    //ecept(['index'])でindexアクションを制限対象にする。
+    public function __contruct()
+    {
+    $this->middleware('auth');
+    }
+
     //index（一覧表示）
     public function index(Request $request)
     {
-    $items = Article::all();
-    return view('article.index',['items' => $items]);
+    $user = Auth::User();
+
+    // if($user)
+    // {
+    //    $article = Article::all();
+       return view('article.index',$user);
     }
+    
+
+    
 
 
     //add.create(新規作成)
@@ -20,11 +35,14 @@ class ArticleController extends Controller
         return view('article.add');
     }
     
+    //ログインユーザーのみが記事を投稿できる。ログインユーザーと記事作成を結びつける。
     public function create(Request $request)
     {
             $this->validate($request, Article::$rules);
             $article = new Article;
-            $form = $request->all();
+            $form->user_id = $request->user()->id;
+            $form->title = $request->title;
+            $form->content = $request->content;
             unset($form['_token']);
             $article->fill($form)->save();
             return redirect('article/index');

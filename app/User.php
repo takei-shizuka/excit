@@ -38,7 +38,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
+//ユーザーと記事の結びつき(1対多)
     public function articles()
     {
         return $this->hasMany('App\Article');
